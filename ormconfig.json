@@ -1,0 +1,21 @@
+{
+  "type": "postgres",
+  "host": "127.0.0.1",
+  "port": 5432,
+  "username": "usr_perfanalytics",
+  "password": "1967AgPi",
+  "database": "db_perfAnalytics",
+  "migrationsTableName": "tb_migrations",
+  "entities": [
+    "dist/Entities/*.js"
+  ],
+  "migrations": [
+    "dist/Migrations/*.js"
+  ],
+  "cli": {
+    "migrationsDir": "src/Migrations"
+  },
+  "synchronize": false,
+  "migrationsRun": true,
+  "ssl": false
+}
