@@ -23,12 +23,12 @@ COPY --chown=node:node . ./
 
 EXPOSE $PORT
 
-ENTRYPOINT ["/sbin/tini", "--"]
-
 RUN envsubst '\$PORT' < /usr/src/app/.env.example > /usr/src/app/.env
 
 RUN npm run pretypeorm
 
 RUN typeorm migration:run
+
+ENTRYPOINT ["/sbin/tini", "--"]
 
 CMD [ "npm", "start" ]
