@@ -29,6 +29,6 @@ ENTRYPOINT ["/sbin/tini", "--"]
 
 RUN sed "s/#PORT/$PORT/g" .env.example > .env
 RUN npm run pretypeorm
-RUN typeorm migration:run
+RUN npm run typeorm migration:run
 
 CMD npm start
