@@ -27,4 +27,8 @@ EXPOSE $PORT
 
 ENTRYPOINT ["/sbin/tini", "--"]
 
-CMD /bin/sh -c "envsubst '\$PORT' < .env.example > .env" && npm run pretypeorm && typeorm migration:run && npm start
+RUN sed "s/#PORT/$PORT/g" .env.example > .env
+RUN npm run pretypeorm
+RUN typeorm migration:run
+
+CMD npm start
