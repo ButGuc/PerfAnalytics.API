@@ -21,16 +21,10 @@ RUN npm cache clean --force
 
 COPY --chown=node:node . ./
 
+COPY --chown=node:node .env.example ./
+
 EXPOSE $PORT
-
-COPY --chown=node:node .env.example .env.example
-
-RUN envsubst '\$PORT' < .env.example > .env
-
-RUN npm run pretypeorm
-
-RUN typeorm migration:run
 
 ENTRYPOINT ["/sbin/tini", "--"]
 
-CMD [ "npm", "start" ]
+CMD /bin/sh -c "envsubst '\$PORT' < .env.example > .env" && npm run pretypeorm && typeorm migration:run && npm start
