@@ -21,10 +21,10 @@ RUN npm cache clean --force
 
 COPY --chown=node:node . ./
 
-COPY --chown=node:node .env.example ./
+COPY --chown=node:node .env ./
 
 EXPOSE $PORT
 
 ENTRYPOINT ["/sbin/tini", "--"]
 
-CMD sed "s/#PORT/$PORT/g" .env.example > .env && npm run pretypeorm && npm run typeorm migration:run && npm start
+CMD sed -i "s/#PORT/$PORT/g" .env && npm run pretypeorm && npm run typeorm migration:run && npm start
