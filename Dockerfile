@@ -1,4 +1,4 @@
-FROM node:14-alpine
+FROM node:13.12.0-alpine
 
 ENV NODE_ENV=production \
     NPM_CONFIG_PREFIX=/home/node/.npm-global \
