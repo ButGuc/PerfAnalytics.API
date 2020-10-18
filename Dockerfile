@@ -23,7 +23,9 @@ COPY --chown=node:node . ./
 
 EXPOSE $PORT
 
-RUN envsubst '\$PORT' < /usr/src/app/.env.example > /usr/src/app/.env
+COPY --chown=node:node .env.example .env.example
+
+RUN envsubst '\$PORT' < .env.example > .env
 
 RUN npm run pretypeorm
 
