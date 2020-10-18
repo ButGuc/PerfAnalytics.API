@@ -1,2 +1,1 @@
 - testler yazılacak
-- ci/cd ayarlanacak, docker container için .dockerfile yazılacak.

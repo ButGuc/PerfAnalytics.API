@@ -1,6 +1,6 @@
 {
   "type": "postgres",
-  "host": "127.0.0.1",
+  "host": "localhost",
   "port": 5432,
   "username": "usr_perfanalytics",
   "password": "1967AgPi",
@@ -17,5 +17,6 @@
   },
   "synchronize": false,
   "migrationsRun": true,
+  "logging": "all",
   "ssl": false
 }
