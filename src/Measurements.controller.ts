@@ -28,7 +28,6 @@ export class MeasurementsController {
 
   @Post()
   async add(
-    @Req() request: Request,
     @Body() measurement: IMeasurement
   ) {
     const result = await this.measurementsService.addMeasurement(measurement);
